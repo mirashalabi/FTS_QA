@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag Information with Dynamic Content</title>
+    <style>
+        #content {
+            font-size: 20px;
+            color: #333;
+            margin-top: 20px;
+        }
+        .content-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .content-item img {
+            width: 70px;
+            height: 50px;
+            margin-right: 15px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #subheader {
+            font-size: 18px;
+            color: #777;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flags -  Dynamic Content</h1>
+    <div id="subheader">
+        <p>This page displays dynamic content related to flags of various countries, which can be refreshed in random order by clicking the button below.</p>
+    </div>
+    <div id="content">
+        <p>Content displayed will be refreshed in a random order when you click the refresh button.</p>
+    </div>
+
+    <button onclick="refreshContent()">Refresh Content</button>
+
+    <script>
+        // List of content with local images to display
+        const allContent = [
+            {text: "Egypt's flag features a rich history, symbolizing its ancient culture and modern unity.", imgSrc: "image1.jpg"},
+            {text: "Italy’s flag represents the country’s beautiful landscapes, from lush green hills to sun-kissed shores.", imgSrc: "image2.jpg"},
+            {text: "Canada’s flag, known for its iconic maple leaf, represents the nation's pride in its natural beauty and diverse heritage.", imgSrc: "image3.jpg"},
+            {text: "The United States flag, with its 50 stars, symbolizes the unity of the country's states under one banner.", imgSrc: "image4.jpg"},
+            {text: "Malaysia’s flag reflects the unity of its diverse population and the strength of its federal government.", imgSrc: "image5.jpg"},
+            {text: "New Zealand's flag showcases its British heritage and its unique position in the Southern Hemisphere.", imgSrc: "image6.jpg"}
+        ];
+
+        // Function randomly organises content
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // Function displays content
+        function displayContent() {
+            const contentDiv = document.getElementById("content");
+            contentDiv.innerHTML = "";
+            allContent.forEach(function(content) {
+                const contentItem = document.createElement("div");
+                contentItem.classList.add("content-item");
+
+                const image = document.createElement("img");
+                image.src = content.imgSrc;
+                image.alt = "Content Image";
+
+                const text = document.createElement("p");
+                text.textContent = content.text;
+
+                contentItem.appendChild(image);
+                contentItem.appendChild(text);
+                contentDiv.appendChild(contentItem);
+            });
+        }
+
+        // Refreshes content when button is clicked
+        function refreshContent() {
+            shuffleArray(allContent);
+            displayContent();
+        }
+
+        // Initial content displayed
+        window.onload = function() {
+            displayContent();
+        };
+    </script>
+</body>
+</html>
+
