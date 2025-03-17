@@ -16,7 +16,7 @@ ________________________________________________________________________________
 **DYNAMIC CONTENT**
 The content will be re-arranged everytime the page is refreshed
 
-**How To Run:**
+**How to run:**
 1. Make sure all of the following files are in the same folder:
     - mshal_DynamicContent.html
     - mshal_DynamicContent.py
