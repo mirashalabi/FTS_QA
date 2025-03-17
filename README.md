@@ -39,10 +39,10 @@ The content will loaded asynchronously after a user action
 
 **How to run:**
 1. Make sure all of the following files are in the same folder:
-    - dynamic_loading_tests.py
-    - dynamic_loading.html
+    - mshal_DynamicallyLoadedPageElement.py
+    - mshal_DynamicallyLoadedPageElement.html
 2. Open a terminal/command prompt and navigate to the directory
-3. Run the test >> python dynamic_loading_tests.py
+3. Run the test >> python mshal_DynamicallyLoadedPageElement.py
 4. A chrome browser will open
 5. The test will wait for the "Start" button to be clicked on the browser window
 6. After clicking, the test will automatically verify the loading behaviour
